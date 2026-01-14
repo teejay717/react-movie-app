@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom'
 const NavBar = () => {
   return (
     <>
+    <div className='flex justify-center'>
     <nav>
         <ul>
             <li>
@@ -14,6 +15,7 @@ const NavBar = () => {
             </li>
         </ul>
     </nav>
+    </div>
     </>
   )
 }
