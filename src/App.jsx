@@ -5,10 +5,12 @@ import Search from "./pages/Search"
 import NavBar from "./components/NavBar"
 
 
+
 function App() {
 
   return (
     <>
+    <div className="bg-neutral-900 h-full">
       <BrowserRouter>
         <NavBar />
         <Routes>
@@ -17,6 +19,7 @@ function App() {
           <Route path="/movie/:id" element={<MovieDetail />}/>
         </Routes>
       </BrowserRouter>
+    </div>
     </>
   )
 }

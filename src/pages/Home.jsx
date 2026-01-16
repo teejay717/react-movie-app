@@ -1,13 +1,17 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 
 const Home = () => {
 
 const [movies, setMovies] = useState([])
+const [loading, setLoading] = useState(false)
 
 async function fetchMovie() {
+        setLoading(true)
         const API_KEY = import.meta.env.VITE_TMDB_API_KEY
 
         try {
@@ -25,6 +29,8 @@ async function fetchMovie() {
         } 
         catch (err) {
             console.log(err)
+        } finally {
+            setLoading(false)
         }
 
         
@@ -40,15 +46,30 @@ console.log(movies)
 
   return (
     <>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 m-8">
+    <div className="container mx-auto px-4 py-8 pt-20">
+        <div className='flex flex-col justify-center items-center p-8 bg-neutral-800 text-white font-bold rounded-lg'>
+            <h1 className='text-2xl'>Movie Explorer</h1>
+            <p className='font-thin italic'>Movie Database (React + TMDB API Practice) by teejay.dev</p>
+        </div>
+    <h2 className="text-3xl font-bold mt-10 text-center text-white">Trending Movies</h2>
+    {loading ? 
+        <div className='flex justify-center items-center w-full h-screen bg-neutral-900 text-white'>
+        <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl" /> 
+        </div>
+        : 
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 m-16 mt-8 py-4 bg-neutral-900">
             {movies.map((movie) => (
-                <div key={movie.id}>
+                <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center" 
+                
+                key={movie.id}>
                     <Link to={`/movie/${movie.id}`}>
-                    <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
-                    <p>{movie.title}</p>
+                    <img alt={movie.title}
+                    className="w-full h-64 object-cover rounded-lg" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>
+                    <p className='text-white font-bold py-4'>{movie.title}</p>
                     </Link>
                 </div>
             ))}
+        </div>}
         </div>
     </>
     
