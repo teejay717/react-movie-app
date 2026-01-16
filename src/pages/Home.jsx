@@ -48,16 +48,18 @@ console.log(movies)
     <>
     <div className="container mx-auto px-4 py-8 pt-20">
         <div className='flex flex-col justify-center items-center p-8 bg-neutral-800 text-white font-bold rounded-lg'>
-            <h1 className='text-2xl'>Movie Explorer</h1>
-            <p className='font-thin italic'>Movie Database (React + TMDB API Practice) by teejay.dev</p>
+            <h1 className='text-5xl mb-2'>Movie Explorer</h1>
+            <p className='font-thin italic text-xl'>Movie Database (React + TMDB API Practice) by teejay.dev</p>
         </div>
-    <h2 className="text-3xl font-bold mt-10 text-center text-white">Trending Movies</h2>
+    <div className='flex justify-center items-center'>
+        <p className="text-3xl mt-10 text-center text-white bg-neutral-800 py-2 px-8 rounded-lg border-1 border-neutral-600 font-bold">Trending Movies</p>
+    </div>
     {loading ? 
         <div className='flex justify-center items-center w-full h-screen bg-neutral-900 text-white'>
         <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl" /> 
         </div>
         : 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 m-16 mt-8 py-4 bg-neutral-900">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 m-16 mt-8 py-4 bg-neutral-900">
             {movies.map((movie) => (
                 <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center" 
                 

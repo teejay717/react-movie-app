@@ -9,6 +9,7 @@ const Search = () => {
   const [searchResults, setSearchResults] = useState([])
   const [loading, setLoading] = useState(false)
   const [moviesDisplayed, setMoviesDisplayed] = useState(false)
+  const [searchedFor, setSearchedFor] = useState('');
 
   async function fetchSearch() {
     setLoading(true)
@@ -49,12 +50,14 @@ const Search = () => {
           onKeyDown={(e) => {
             if (e.key === 'Enter') {
                 fetchSearch()
+                setSearchedFor(searchInput)
             }
           }}
           ></input>
           <button className='border-1 hover:cursor-pointer border-neutral-500 bg-neutral-700 py-2 px-4 rounded-lg text-white'
           onClick={() => {
             fetchSearch()
+            setSearchedFor(searchInput)
           }}><FontAwesomeIcon icon={faMagnifyingGlass} /></button>
         </div>
       </div>
@@ -65,7 +68,7 @@ const Search = () => {
       : 
       
       <div className="container mx-auto px-4 py-8 pt-10 h-full">
-        {!moviesDisplayed ? <p className='text-center text-white text-3xl font-bold'>Search for your favorite Movie!</p> : <p className='text-center text-white text-3xl font-bold'>Search results for: {searchInput}</p>}
+        {!moviesDisplayed ? <p className='text-center text-white text-3xl font-bold'>Search for your favorite Movie!</p> : <p className='text-center text-white text-3xl font-bold'>Search results for: {searchedFor}</p>}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 m-8">
         {searchResults.map((movie) => (
                         <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center" 
