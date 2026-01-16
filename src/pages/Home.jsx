@@ -52,7 +52,7 @@ console.log(movies)
             <p className='font-thin italic text-xl'>Movie Database (React + TMDB API Practice) by teejay.dev</p>
         </div>
     <div className='flex justify-center items-center'>
-        <p className="text-2xl mt-10 text-center text-white bg-neutral-800 py-2 px-8 rounded-lg border-1 border-neutral-600 font-bold">Trending Movies</p>
+        <p className="text-2xl mt-10 text-center text-white bg-neutral-800 py-2 px-8 rounded-lg border-1 border-neutral-600 font-bold hover:scale-102 transition  hover:shadow-2xl shadow-lg hover:border-neutral-400">Trending Movies</p>
     </div>
     {loading ? 
         <div className='flex justify-center items-center w-full h-screen bg-neutral-900 text-white'>
@@ -61,8 +61,8 @@ console.log(movies)
         : 
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 m-16 mt-8 py-4 bg-neutral-900">
             {movies.map((movie) => (
-                <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center" 
-                
+                <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center hover:border-neutral-400" 
+                // hover:scale-101 transition hover:bg-neutral-700 hover:shadow-2xl shadow-lg
                 key={movie.id}>
                     <Link to={`/movie/${movie.id}`}>
                     <img alt={movie.title}

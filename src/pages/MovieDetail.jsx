@@ -3,12 +3,15 @@ import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
 
 const MovieDetail = () => {
 
 const { id } = useParams()
 const [movie, setMovie] = useState([])
 const [loading, setLoading] = useState(false)
+const navigate = useNavigate()
 
 useEffect(() => {
     async function fetchMovieDetail() {
@@ -38,13 +41,15 @@ useEffect(() => {
 
   return (
     <>
-    <div className='h-screen flex justify-center items-center text-xl'>
+    <div className='h-screen flex justify-center items-center text-xl flex-col'>
     {loading ? 
         <div className='flex justify-center items-center w-full h-screen'>
         <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl" /> 
         </div>
         : 
-        <div className='mx-100 flex flex-row justify-center items-center border-1 p-8 rounded-lg text-white h-auto bg-neutral-800 border-neutral-600'>
+        <>
+        
+        <div className='mx-100 flex flex-row justify-center items-center border-1 p-8 rounded-lg text-white h-auto bg-neutral-800 border-neutral-600 hover:scale-101 transition hover:shadow-2xl shadow-lg hover:border-neutral-400'>
             <img className='rounded-lg border-1 border-neutral-600' src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}/>
             <div className='flex flex-col pl-8'>
                 <p className='text-4xl font-bold'>{movie.title}</p>
@@ -53,9 +58,17 @@ useEffect(() => {
                     <span className="border-1 py-1 px-4 text-xl bg-neutral-700 border-neutral-500 rounded-lg mr-1" key={genre.id}>{genre.name} </span>
                 ))}</div>
 
-                <p>Overview: {movie.overview}</p>
+                <p className='text-justify'>Overview: {movie.overview}</p>
             </div>
-        </div>}
+        </div>
+        <button 
+        onClick={() => {
+            navigate(-1)
+        }}
+        className='bg-neutral-800 border-neutral-600 border-1 rounded-lg px-4 py-2 text-white mt-8 hover:cursor-pointer hover:scale-105 transition  hover:shadow-2xl shadow-lg hover:border-neutral-400'>
+            Back <FontAwesomeIcon icon={faRightFromBracket} />
+        </button>
+        </>}
     </div>
     </>
     
