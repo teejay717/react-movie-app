@@ -47,12 +47,12 @@ console.log(movies)
   return (
     <>
     <div className="container mx-auto px-4 py-8 pt-20">
-        <div className='flex flex-col justify-center items-center p-8 bg-neutral-800 text-white font-bold rounded-lg'>
+        <div className='flex flex-col justify-center items-center p-8  text-white font-bold rounded-lg'>
             <h1 className='text-5xl mb-2'>Movie Explorer</h1>
             <p className='font-thin italic text-xl'>Movie Database (React + TMDB API Practice) by teejay.dev</p>
         </div>
     <div className='flex justify-center items-center'>
-        <p className="text-3xl mt-10 text-center text-white bg-neutral-800 py-2 px-8 rounded-lg border-1 border-neutral-600 font-bold">Trending Movies</p>
+        <p className="text-2xl mt-10 text-center text-white bg-neutral-800 py-2 px-8 rounded-lg border-1 border-neutral-600 font-bold">Trending Movies</p>
     </div>
     {loading ? 
         <div className='flex justify-center items-center w-full h-screen bg-neutral-900 text-white'>

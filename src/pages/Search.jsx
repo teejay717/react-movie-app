@@ -43,7 +43,7 @@ const Search = () => {
     <div className="min-h-screen bg-neutral-900">
       <div className='flex justify-center items-center'>
         <div className='flex gap-2 mt-30 bg-neutral-800 p-8 rounded-lg border-1 border-neutral-600'>
-          <input placeholder="Search for a movie!" className="border-1 border-neutral-500 bg-neutral-700 py-2 px-4 rounded-lg placeholder:text-neutral-500 text-white" type='text' value = {searchInput} 
+          <input placeholder="Search for a movie!" className="border-1 border-neutral-500 bg-neutral-700 py-2 px-4 rounded-lg placeholder:text-neutral-500 text-white text-xl" type='text' value = {searchInput} 
           onChange={(e) => {
             setSearchInput(e.target.value)
           }}
@@ -69,7 +69,7 @@ const Search = () => {
       
       <div className="container mx-auto px-4 py-8 pt-10 h-full">
         {!moviesDisplayed ? <p className='text-center text-white text-3xl font-bold'>Search for your favorite Movie!</p> : <p className='text-center text-white text-3xl font-bold'>Search results for: {searchedFor}</p>}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 m-8">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4 m-8">
         {searchResults.map((movie) => (
                         <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center" 
                         
