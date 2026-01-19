@@ -24,7 +24,7 @@ async function fetchMovie() {
             }
 
             const data = await res.json();
-            setMovies(data.results)
+            setMovies(data)
             
         } 
         catch (err) {
@@ -58,9 +58,12 @@ console.log(movies)
         <div className='flex justify-center items-center w-full h-screen bg-neutral-900 text-white'>
         <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl" /> 
         </div>
-        : 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 m-16 mt-8 py-4 bg-neutral-900">
-            {movies.map((movie) => (
+        : movies.length === 0 ? 
+        <div className='flex justify-center w-full h-screen bg-neutral-900 text-white'>
+            <p className='font-thin text-4xl mt-32'>Failed to fetch Trending Movies!</p>
+        </div> 
+        : <div className="grid grid-cols-2 md:grid-cols-5 gap-6 m-16 mt-8 py-4 bg-neutral-900">
+           {movies.results?.map((movie) => (
                 <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center hover:border-neutral-400" 
                 // hover:scale-101 transition hover:bg-neutral-700 hover:shadow-2xl shadow-lg
                 key={movie.id}>
@@ -72,6 +75,7 @@ console.log(movies)
                 </div>
             ))}
         </div>}
+        
         </div>
     </>
     

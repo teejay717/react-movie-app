@@ -44,7 +44,7 @@ useEffect(() => {
     <div className='h-screen flex justify-center items-center text-xl flex-col'>
     {loading ? 
         <div className='flex justify-center items-center w-full h-screen'>
-        <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl" /> 
+        <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl text-white" /> 
         </div>
         : 
         <>
