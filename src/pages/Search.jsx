@@ -38,7 +38,7 @@ const Search = () => {
 
   return (
     <>
-    <div className="min-h-screen bg-neutral-900">
+    <div className=" bg-neutral-900">
       <div className='flex justify-center items-center'>
         <div className='flex gap-2 mt-30 bg-neutral-800 p-8 rounded-lg border-1 border-neutral-600 hover:scale-101 transition hover:shadow-2xl shadow-lg hover:border-neutral-400'>
           <input placeholder="Search for a movie!" className="border-1 border-neutral-500 bg-neutral-700 py-2 px-4 rounded-lg placeholder:text-neutral-500 text-white text-s sm:text-lg md:text-xl z-auto hover:scale-101 transition hover:shadow-2xl shadow-lg hover:border-neutral-400'" type='text' value = {searchInput} 

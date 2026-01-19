@@ -10,7 +10,7 @@ function App() {
 
   return (
     <>
-    <div className="bg-neutral-900 h-full">
+    <div className="bg-neutral-900 min-h-screen">
       <BrowserRouter>
         <NavBar />
         <Routes>

@@ -41,7 +41,7 @@ useEffect(() => {
 
   return (
     <>
-    <div className='h-screen flex justify-center items-center text-xl flex-col'>
+    <div className='min-h-screen flex justify-center items-center text-xl flex-col'>
     {loading ? 
         <div className='flex justify-center items-center w-full h-screen'>
         <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl text-white" /> 
@@ -49,13 +49,17 @@ useEffect(() => {
         : 
         <>
         
-        <div className='text-xs sm:text-md md:text-lg xl:text-2xl mx-10 sm:mx-20 2xl:mx-100 flex flex-col md:flex-row justify-center items-center border-1 p-8 rounded-lg text-white h-auto bg-neutral-800 border-neutral-600 hover:scale-101 transition hover:shadow-2xl shadow-lg hover:border-neutral-400'>
+        <div className='text-s sm:text-md md:text-lg xl:text-2xl mx-10 sm:mx-20 2xl:mx-100 flex flex-col md:flex-row justify-center items-center border-1 p-8 rounded-lg text-white h-auto bg-neutral-800 border-neutral-600 hover:scale-101 transition hover:shadow-2xl shadow-lg hover:border-neutral-400'>
             <img className='rounded-lg border-1 border-neutral-600' src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}/>
             <div className='flex flex-col md:pl-8 text-center md:text-left'>
                 <p className='text-2xl sm:text-2xl md:text-4xl font-bold'>{movie.title}</p>
                 <p className='text-lg'>Release Date: {movie.release_date}</p>
-                <div className='mt-4 mb-4 flex flex-wrap gap-1 justify-center md:justify-start'>{movie.genres?.map((genre) => (
-                    <span className="border-1 py-1 px-4 text-xs sm:text-md md:text-lg xl:text-xl 2xl:text-2xl bg-neutral-700 border-neutral-500 rounded-lg mr-1 mb-1" key={genre.id}>{genre.name} </span>
+                <div className='mt-4 mb-4 flex flex-wrap gap-1 justify-center md:justify-start 
+                
+                '>{movie.genres?.map((genre) => (
+                    <span className="border-1 py-1 px-4 text-s sm:text-md md:text-lg xl:text-xl 2xl:text-xl bg-neutral-700 border-neutral-500 rounded-lg mr-1 mb-1
+                    hover:scale-101 transition hover:shadow-2xl shadow-lg hover:border-neutral-400 hover:cursor-default hover:bg-neutral-600
+                    " key={genre.id}>{genre.name} </span>
                 ))}</div>
 
                 <p className='text-justify text-lg'>Overview: {movie.overview}</p>
