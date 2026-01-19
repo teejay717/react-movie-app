@@ -25,7 +25,7 @@ const Search = () => {
 
       const data = await res.json();
       console.log(data)
-      setSearchResults(data.results)
+      setSearchResults(data)
     }
     catch (error) {
       console.log("Error fetching")
@@ -35,8 +35,6 @@ const Search = () => {
       setMoviesDisplayed(true)
     }
   }
-
-  console.log(searchResults.results)
 
   return (
     <>
@@ -68,10 +66,10 @@ const Search = () => {
       : 
       
       <div className="container mx-auto px-4 py-8 pt-10 h-full">
-        {!moviesDisplayed ? <p className='text-center text-white text-3xl font-bold'>Search for your favorite Movie!</p> : <p className='text-center text-white text-3xl font-bold'>Search results for: {searchedFor}</p>}
+        {!moviesDisplayed ? <p className='text-center text-white text-3xl font-bold'>Search for your favorite Movie!</p> : searchResults.total_results === 0 ? <p className='text-center text-white text-3xl font-bold'>No results found!</p> : <p className='text-center text-white text-3xl font-bold'>Search results for: {searchedFor}</p>}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4 m-8">
-        {searchResults.map((movie) => (
-                        <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center" 
+        {searchResults.results?.map((movie) => (
+                        <div className="bg-neutral-800 rounded-lg shadow-lg p-2 hover:scale-101 hover:shadow-2xl hover:bg-neutral-700 transition cursor-pointer flex flex-col items-center w-full border-1 border-neutral-600 text-center hover:border-neutral-400" 
                         
                         key={movie.id}>
                             <Link to={`/movie/${movie.id}`}>
