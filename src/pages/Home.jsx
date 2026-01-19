@@ -58,7 +58,7 @@ console.log(movies)
         <div className='flex justify-center items-center w-full h-screen bg-neutral-900 text-white'>
         <FontAwesomeIcon icon={faSpinner} className="animate-spin text-6xl" /> 
         </div>
-        : movies.length === 0 ? 
+        : movies.results?.length === 0 ? 
         <div className='flex justify-center w-full h-screen bg-neutral-900 text-white'>
             <p className='font-thin text-4xl mt-32'>Failed to fetch Trending Movies!</p>
         </div> 
